@@ -195,35 +195,26 @@
     // Function to send repeated BLE commands
     function startWritingUpButton() {
       writeUpButtonCharacteristic(1);
-      upInterval = setInterval(() => writeUpButtonCharacteristic(1), 50); // Adjust interval as needed
     }
 
     function startWritingDownButton() {
       writeDownButtonCharacteristic(1);
-      downInterval = setInterval(() => writeDownButtonCharacteristic(1), 10);
     }
 
     // Function to stop sending BLE commands
     function stopWritingUpButton() {
-      clearInterval(upInterval);
+      writeDownButtonCharacteristic(1); // Send "press"
     }
 
     function stopWritingDownButton() {
-      clearInterval(downInterval);
+      writeDownButtonCharacteristic(0); // Send "release"
     }
 
     // Event Listeners for Continuous Press
-    upButton.addEventListener("mousedown", startWritingUpButton);
-    upButton.addEventListener("mouseup", stopWritingUpButton);
-    upButton.addEventListener("mouseleave", stopWritingUpButton);
-    upButton.addEventListener("touchstart", startWritingUpButton);
-    upButton.addEventListener("touchend", stopWritingUpButton);
-
-    downButton.addEventListener("mousedown", startWritingDownButton);
-    downButton.addEventListener("mouseup", stopWritingDownButton);
-    downButton.addEventListener("mouseleave", stopWritingDownButton);
-    downButton.addEventListener("touchstart", startWritingDownButton);
-    downButton.addEventListener("touchend", stopWritingDownButton);
+    upButton.addEventListener("pointerdown", startWritingUpButton);
+    upButton.addEventListener("pointerup", stopWritingUpButton);
+    downButton.addEventListener("pointerdown", startWritingDownButton);
+    downButton.addEventListener("pointerup", stopWritingDownButton);
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "ArrowUp") {
