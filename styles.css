@@ -1,156 +1,168 @@
+/* General Styles */
 html {
-        font-family: Arial, Helvetica, sans-serif;
-        display: inline-block;
-        text-align: center;
-      }
-      h1 {
-        font-size: 1.8rem;
-        color: white;
-      }
-      .topnav {
-        overflow: hidden;
-        background-color: #0a1128;
-      }
-      body {
-        margin: 0;
-      }
-      .content {
-        padding: 50px;
-      }
-      .card-grid {
-        max-width: 800px;
-        margin: 0 auto;
-        margin-bottom: 30px;
-        display: grid;
-        grid-gap: 2rem;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      }
-      .card {
-        background-color: white;
-        box-shadow: 2px 2px 12px 1px rgba(140, 140, 140, 0.5);
-      }
-      .popup {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: white;
-        padding: 20px;
-        box-shadow: 0px 0px 10px gray;
-      }
-      .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-      }
-      button {
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        border-radius: 4px;
-      }
+  font-family: Arial, Helvetica, sans-serif;
+  display: inline-block;
+  text-align: center;
+}
 
-      .connectButton {
-        background-color: #24af37;
-      }
+body {
+  margin: 0;
+}
 
-      .disconnectButton {
-        background-color: #d13a30;
-      }
-      .playButton {
-        background-color: #007bff;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        border-radius: 4px;
-      }
-      .gray-label {
-        color: #bebebe;
-        font-size: 1rem;
-      }
+h1 {
+  font-size: 1.8rem;
+  color: white;
+}
 
-      .reading {
-        font-size: 1.8rem;
-      }
+.topnav {
+  overflow: hidden;
+  background-color: #0a1128;
+}
 
-      .upButton {
-        font-size: 20px;
-        padding: 23px 45px;
-        border-radius: 10px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        cursor: pointer;
-        user-select: none;
-      }
-      .downButton {
-        font-size: 20px;
-        padding: 23px 45px;
-        border-radius: 10px;
-        background-color: #d42111;
-        color: white;
-        border: none;
-        cursor: pointer;
-        user-select: none;
-      }
-      .card-grid.game-card {
-        margin-top: 69px; /* Adjust as needed */
-      }
+.content {
+  padding: 50px;
+}
 
-      #adjustBrightnessButton {
-        background-color: #4CAF50;
-        color: white;
-      }
-      #brightnessPopup button {
-        background-color: #007bff;
-        color: white;
-      }
-      #brightnessPopup button:hover {
-        background-color: #0056b3;
-      }
-      input[type="range"] {
-        width: 100%;
-        height: 10px;
-        border-radius: 5px;
-        background: linear-gradient(to right, #ff7e5f, #feb47b);
-        outline: none;
-        -webkit-appearance: none;
-        transition: background 0.3s ease;
-      }
-      input[type="range"]:hover {
-        background: linear-gradient(to right, #ff6f61, #e44d26);
-      }
-      input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        background: #007bff;
-        cursor: pointer;
-        transition: background 0.3s ease;
-      }
-      input[type="range"]::-webkit-slider-thumb:hover {
-        background: #0056b3;
-      }
-      input[type="number"] {
-        padding: 8px;
-        font-size: 16px;
-        width: 80px;
-        border-radius: 5px;
-        border: 1px solid #ddd;
-        text-align: center;
-        transition: border 0.3s ease;
-      }
-      input[type="number"]:focus {
-        border-color: #007bff;
-        outline: none;
-      }
+/* Card Grid Layout */
+.card-grid {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card-grid.game-card {
+  margin-top: 69px;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 2px 2px 12px 1px rgba(140, 140, 140, 0.5);
+}
+
+/* Popup & Overlay */
+.popup, .overlay {
+  display: none;
+  position: fixed;
+}
+
+.popup {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px gray;
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+button {
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.connectButton {
+  background-color: #24af37;
+}
+
+.disconnectButton {
+  background-color: #d13a30;
+}
+
+.playButton, .upButton, .downButton {
+  background-color: #007bff;
+}
+
+.playButton, .upButton, .downButton,
+#brightnessPopup button, #adjustBrightnessButton {
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#adjustBrightnessButton {
+  background-color: #4CAF50;
+}
+
+#brightnessPopup button:hover {
+  background-color: #0056b3;
+}
+
+.upButton, .downButton {
+  font-size: 20px;
+  padding: 23px 45px;
+  border-radius: 10px;
+  user-select: none;
+}
+
+.downButton {
+  background-color: #d42111;
+}
+
+/* Labels & Readings */
+.gray-label {
+  color: #bebebe;
+  font-size: 1rem;
+}
+
+.reading {
+  font-size: 1.8rem;
+}
+
+/* Input Fields */
+input[type="range"] {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  outline: none;
+  -webkit-appearance: none;
+  transition: background 0.3s ease;
+}
+
+input[type="range"]:hover {
+  background: linear-gradient(to right, #ff6f61, #e44d26);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #007bff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #0056b3;
+}
+
+input[type="number"] {
+  padding: 8px;
+  font-size: 16px;
+  width: 80px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  text-align: center;
+  transition: border 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
