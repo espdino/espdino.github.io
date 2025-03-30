@@ -190,17 +190,6 @@
     // Write to the ESP32 LED Characteristic
     // Variables to hold the interval references
     
-    document.addEventListener("contextmenu", (event) => {
-      event.preventDefault(); // Block ALL right-clicks
-    });
-
-    document.addEventListener("mousedown", (event) => {
-      if (event.button === 2 || (event.shiftKey && event.button === 2)) {
-          location.reload(); // Refresh the page
-        event.preventDefault(); // Block Right Click & Shift + Right Click
-      }
-    });
-
     let upInterval, downInterval;
 
     // Function to send repeated BLE commands
