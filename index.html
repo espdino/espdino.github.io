@@ -189,54 +189,47 @@
     });
     
     function startWritingUpButton() {
-      let count1 = 0;
-      const interval1 = setInterval(() => {
-      writeUpButtonCharacteristic(1);
-      count1++;
-      if (count1 >= 3) clearInterval(interval1);
-    }, 10); // Send every 10ms, 10 times
-    }
+    let count1 = 0;
+    const interval1 = setInterval(() => {
+        writeUpButtonCharacteristic(1);
+        count1++;
+        if (count1 >= 3) clearInterval(interval1);
+    }, 10); // Sends 1 three times (every 10ms)
+}
 
-    function startWritingDownButton() {
+function startWritingDownButton() {
     let count2 = 0;
     const interval2 = setInterval(() => {
         writeDownButtonCharacteristic(1);
         count2++;
         if (count2 >= 3) clearInterval(interval2);
-    }, 10); // Send every 10ms, 10 times
-    }
+    }, 10); // Sends 1 three times (every 10ms)
+}
 
-    // Function to stop sending BLE commands
-    function stopWritingUpButton() {
+function stopWritingUpButton() {
     let count3 = 0;
     const interval3 = setInterval(() => {
         writeUpButtonCharacteristic(0);
         count3++;
         if (count3 >= 3) clearInterval(interval3);
-    }, 10); // Send every 10ms, 10 times
-    }
+    }, 10); // Sends 0 three times (every 10ms)
+}
 
-    function stopWritingDownButton() {
+function stopWritingDownButton() {
     let count4 = 0;
     const interval4 = setInterval(() => {
         writeDownButtonCharacteristic(0);
         count4++;
         if (count4 >= 3) clearInterval(interval4);
-    }, 10); // Send every 10ms, 10 times
-    }
+    }, 10); // Sends 0 three times (every 10ms)
+}
 
-    // Event Listeners for Continuous Press
-    upButton.addEventListener("mousedown", startWritingUpButton);
-    upButton.addEventListener("mouseup", stopWritingUpButton);
-    upButton.addEventListener("mouseleave", stopWritingUpButton);
-    upButton.addEventListener("touchstart", startWritingUpButton);
-    upButton.addEventListener("touchend", stopWritingUpButton);
+// ✅ Use pointer events for better cross-device support
+upButton.addEventListener("pointerdown", startWritingUpButton);
+upButton.addEventListener("pointerup", stopWritingUpButton);
+downButton.addEventListener("pointerdown", startWritingDownButton);
+downButton.addEventListener("pointerup", stopWritingDownButton);
 
-    downButton.addEventListener("mousedown", startWritingDownButton);
-    downButton.addEventListener("mouseup", stopWritingDownButton);
-    downButton.addEventListener("mouseleave", stopWritingDownButton);
-    downButton.addEventListener("touchstart", startWritingDownButton);
-    downButton.addEventListener("touchend", stopWritingDownButton);
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "ArrowUp") {
