@@ -27,7 +27,7 @@ let bleServer, bleServiceFound, downButtonCharacteristicFound;
 // Event Listeners
 elements.connectButton.addEventListener("click", () => isWebBluetoothEnabled() && connectToDevice());
 elements.disconnectButton.addEventListener("click", disconnectDevice);
-elements.playButton.addEventListener("click", () => (togglePopup(true), elements.playButton.disabled = true));
+elements.playButton.addEventListener("click", function handler() { togglePopup(true); elements.playButton.removeEventListener("click", handler); });
 elements.brightnessSlider.addEventListener("input", updateBrightness);
 elements.brightnessValue.addEventListener("input", updateBrightness);
 
