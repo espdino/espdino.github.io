@@ -189,18 +189,6 @@
     });
     // Write to the ESP32 LED Characteristic
     // Variables to hold the interval references
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowUp") {
-          writeUpButtonCharacteristic(1);
-      }
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowDown") {
-          writeDownButtonCharacteristic(1);
-      }
-    });
     
     document.addEventListener("contextmenu", (event) => {
       event.preventDefault(); // Block ALL right-clicks
@@ -254,7 +242,7 @@
 
     function startWritingDownButton() {
       writeDownButtonCharacteristic(1);
-      downInterval = setInterval(() => writeDownButtonCharacteristic(1), 10);
+      downInterval = setInterval(() => writeDownButtonCharacteristic(1), 6);
     }
 
     // Function to stop sending BLE commands
@@ -279,6 +267,31 @@
     downButton.addEventListener("touchstart", startWritingDownButton);
     downButton.addEventListener("touchend", stopWritingDownButton);
 
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowUp") {
+          startWritingUpButton();
+      }
+    });
+
+    document.addEventListener("keyup", (event) => {
+      if (event.key === "ArrowUp") {
+          stopWritingUpButton();
+      }
+    });
+
+    
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown") {
+          startWritingDownButton();
+      }
+    });
+
+    document.addEventListener("keyup", (event) => {
+      if (event.key === "ArrowDown") {
+          stopWritingDownButton();
+      }
+    });
+    
     // Check if BLE is available in your Browser
     function isWebBluetoothEnabled() {
       if (!navigator.bluetooth) {
