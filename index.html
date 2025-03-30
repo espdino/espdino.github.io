@@ -219,31 +219,36 @@ downButton.addEventListener("pointerdown", startWritingDownButton);
 downButton.addEventListener("pointerup", stopWritingDownButton);
 
 
-   /* document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowUp") {
-          startWritingUpButton();
-      }
-    });
+let upPressed = false;
+let downPressed = false;
 
-    document.addEventListener("keyup", (event) => {
-      if (event.key === "ArrowUp") {
-          stopWritingUpButton();
-      }
-    });
+document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowUp" && !upPressed) {
+        upPressed = true;
+        startWritingUpButton();
+    }
+});
 
-    
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowDown") {
-          startWritingDownButton();
-      }
-    });
+document.addEventListener("keyup", (event) => {
+    if (event.key === "ArrowUp") {
+        upPressed = false;
+        stopWritingUpButton();
+    }
+});
 
-    document.addEventListener("keyup", (event) => {
-      if (event.key === "ArrowDown") {
-          stopWritingDownButton();
-          stopWritingDownButton();
-      }
-    });*/
+document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowDown" && !downPressed) {
+        downPressed = true;
+        startWritingDownButton();
+    }
+});
+
+document.addEventListener("keyup", (event) => {
+    if (event.key === "ArrowDown") {
+        downPressed = false;
+        stopWritingDownButton();
+    }
+});
     
     // Check if BLE is available in your Browser
     function isWebBluetoothEnabled() {
