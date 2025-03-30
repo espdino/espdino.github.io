@@ -45,6 +45,25 @@
         background-color: white;
         box-shadow: 2px 2px 12px 1px rgba(140, 140, 140, 0.5);
       }
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        box-shadow: 0px 0px 10px gray;
+      }
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
       button {
         color: white;
         padding: 14px 20px;
@@ -118,6 +137,16 @@
             <button id="disconnectBleButton" class="disconnectButton">
               Disconnect BLE Device
             </button>
+            <button id="adjustBrightnessButton">Adjust Brightness</button>
+    
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="brightnessPopup">
+      <h2>Adjust Brightness</h2>
+      <input type="range" id="brightnessSlider" min="0" max="255" value="25" />
+      <input type="number" id="brightnessValue" min="0" max="255" value="25" />
+      <br><br>
+      <button onclick="closePopup()">Close</button>
+      </div>
             <button id="playButton" class="playButton">Play the Game</button>
           </p>
           <p class="gray-label">
@@ -187,6 +216,32 @@
     playButton.addEventListener("click", () => {
       writeUpButtonCharacteristic(2);
     });
+
+    document.getElementById("adjustBrightnessButton").addEventListener("click", function() {
+        this.style.display = "none";
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("brightnessPopup").style.display = "block";
+      });
+      
+      function closePopup() {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("brightnessPopup").style.display = "none";
+      }
+      
+      function sendBrightness(value) {
+        console.log("Brightness set to:", value);
+        writeUpButtonCharacteristic(parseInt(value));
+      }
+      
+      document.getElementById("brightnessSlider").addEventListener("input", function() {
+        document.getElementById("brightnessValue").value = this.value;
+        sendBrightness(this.value);
+      });
+      
+      document.getElementById("brightnessValue").addEventListener("input", function() {
+        document.getElementById("brightnessSlider").value = this.value;
+        sendBrightness(this.value);
+      });
     
     function startWritingUpButton() {
         writeUpButtonCharacteristic(1);
