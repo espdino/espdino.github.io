@@ -231,10 +231,17 @@
     }
 
     // Event Listeners for Continuous Press
-    upButton.addEventListener("pointerdown", startWritingUpButton);
-    upButton.addEventListener("pointerup", stopWritingUpButton);
-    downButton.addEventListener("pointerdown", startWritingDownButton);
-    downButton.addEventListener("pointerup", stopWritingDownButton);
+    upButton.addEventListener("mousedown", startWritingUpButton);
+    upButton.addEventListener("mouseup", stopWritingUpButton);
+    upButton.addEventListener("mouseleave", stopWritingUpButton);
+    upButton.addEventListener("touchstart", startWritingUpButton);
+    upButton.addEventListener("touchend", stopWritingUpButton);
+
+    downButton.addEventListener("mousedown", startWritingDownButton);
+    downButton.addEventListener("mouseup", stopWritingDownButton);
+    downButton.addEventListener("mouseleave", stopWritingDownButton);
+    downButton.addEventListener("touchstart", startWritingDownButton);
+    downButton.addEventListener("touchend", stopWritingDownButton);
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "ArrowUp") {
