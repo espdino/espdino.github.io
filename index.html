@@ -194,16 +194,26 @@
 
     // Function to send repeated BLE commands
     function startWritingUpButton() {
+      let count1 = 0;
+      const interval = setInterval(() => {
       writeUpButtonCharacteristic(1);
+      count++;
+      if (count >= 3) clearInterval(interval);
+    }, 10); // Send every 10ms, 10 times
     }
 
     function startWritingDownButton() {
-      writeDownButtonCharacteristic(1);
+    let count2 = 0;
+    const interval = setInterval(() => {
+        writeDownButtonCharacteristic(1);
+        count++;
+        if (count >= 3) clearInterval(interval);
+    }, 10); // Send every 10ms, 10 times
     }
 
     // Function to stop sending BLE commands
     function stopWritingUpButton() {
-    let count1 = 0;
+    let count3 = 0;
     const interval = setInterval(() => {
         writeUpButtonCharacteristic(0);
         count++;
@@ -212,7 +222,7 @@
     }
 
     function stopWritingDownButton() {
-    let count2 = 0;
+    let count4 = 0;
     const interval = setInterval(() => {
         writeDownButtonCharacteristic(0);
         count++;
