@@ -190,6 +190,18 @@
     // Write to the ESP32 LED Characteristic
     // Variables to hold the interval references
 
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowUp") {
+          writeUpButtonCharacteristic(1);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown") {
+          writeDownButtonCharacteristic(1);
+      }
+    });
+    
     document.addEventListener("contextmenu", (event) => {
       event.preventDefault(); // Block ALL right-clicks
     });
@@ -200,6 +212,12 @@
       }
     });
 
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Shift") {
+          location.reload(); // Refresh the page
+      }
+    });
+    
     document.addEventListener("keydown", (event) => {
       if (
         event.key === "F12" ||
