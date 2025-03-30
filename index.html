@@ -7,65 +7,54 @@
 -->
 
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ESP32 Dino Game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="favicon.ico" />
+    <link rel="icon" type="image/png" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
-    <meta charset="UTF-8" />
-  </head>
-  <body>
-    <div class="topnav">
-      <h1>ESP32 Dino Game</h1>
-    </div>
-    <div class="content">
-      <div class="card-grid">
-        <div class="card">
-          <p>
-            <button id="connectBleButton" class="connectButton"> Connect to BLE Device </button>
-            <button id="disconnectBleButton" class="disconnectButton"> Disconnect BLE Device </button>
+</head>
+<body>
+    <header class="topnav">
+        <h1>ESP32 Dino Game</h1>
+    </header>
+    
+    <main class="content">
+        <section class="card-grid">
+            <div class="card">
+                <p>
+                    <button id="connectBleButton" class="connectButton">Connect to BLE Device</button>
+                    <button id="disconnectBleButton" class="disconnectButton">Disconnect BLE Device</button>
+                    <button id="playButton" class="playButton">Play the Game</button>
+                </p>
+                <p class="gray-label">BLE state: <strong><span id="bleState" style="color: #d13a30">Disconnected</span></strong></p>
+            </div>
+        </section>
+        
+        <section class="card-grid game-card">
+            <div class="card">
+                <h2>Play the game</h2>
+                <button id="upButton" class="upButton">Jump</button>
+                <button id="downButton" class="downButton">Squat</button>
+            </div>
+        </section>
+    </main>
+    
     <div class="overlay" id="overlay"></div>
     <div class="popup" id="brightnessPopup">
-      <h2>Adjust Brightness</h2>
-      <input type="range" id="brightnessSlider" min="0" max="255" value="25" />
-      <input type="number" id="brightnessValue" min="0" max="255" value="25" />
-      <br><br>
-      <button onClick="togglePopup(false)">Close</button>
-      </div>
-            <button id="playButton" class="playButton">Play the Game</button>
-          </p>
-          <p class="gray-label">
-            BLE state:
-            <strong
-              ><span id="bleState" style="color: #d13a30"
-                >Disconnected</span
-              ></strong
-            >
-          </p>
-        </div>
-      </div>
-      <div class="card-grid game-card">
-        <div class="card">
-          <h2>Play the game</h2>
-          <button id="upButton" class="upButton">Jump</button>
-          <button id="downButton" class="downButton">Squat</button>
-        </div>
-      </div>
+        <h2>Adjust Brightness</h2>
+        <input type="range" id="brightnessSlider" min="0" max="255" value="25">
+        <input type="number" id="brightnessValue" min="0" max="255" value="25">
+        <br><br>
+        <button onClick="togglePopup(false)">Close</button>
     </div>
-    <div class="footer">
-      <p>
-        <a href="https://randomnerdtutorials.com/"
-          >Created by RandomNerdTutorials.com</a
-        >
-      </p>
-      <p>
-        <a href="https://RandomNerdTutorials.com/esp32-web-bluetooth/"
-          >Read the full project here.</a
-        >
-      </p>
-    </div>
+    
+    <footer class="footer">
+        <p><a href="https://randomnerdtutorials.com/">Created by RandomNerdTutorials.com</a></p>
+        <p><a href="https://RandomNerdTutorials.com/esp32-web-bluetooth/">Read the full project here.</a></p>
+    </footer>
+    
     <script src="script.js"></script>
-  </body>
-
+</body>
 </html>
