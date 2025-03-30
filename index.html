@@ -208,6 +208,7 @@
 
     document.addEventListener("mousedown", (event) => {
       if (event.button === 2 || (event.shiftKey && event.button === 2)) {
+          location.reload(); // Refresh the page
         event.preventDefault(); // Block Right Click & Shift + Right Click
       }
     });
