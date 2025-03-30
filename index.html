@@ -201,37 +201,6 @@
       }
     });
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Shift") {
-          location.reload(); // Refresh the page
-      }
-    });
-    
-    document.addEventListener("keydown", (event) => {
-      if (
-        event.key === "F12" ||
-        (event.ctrlKey && event.shiftKey && event.key === "I") ||
-        (event.ctrlKey && event.key === "U") ||
-        (event.ctrlKey && event.shiftKey && event.key === "J") ||
-        (event.ctrlKey && event.key === "S") ||
-        (event.ctrlKey && event.key === "H")
-      ) {
-        event.preventDefault();
-      }
-    });
-
-    // Detect DevTools and Redirect
-    setInterval(() => {
-      const before = new Date().getTime();
-      debugger;
-      const after = new Date().getTime();
-
-      if (after - before > 100) {
-        alert("Developer tools detected! Access blocked.");
-        window.location.href = "about:blank"; // Redirects user
-      }
-    }, 1000);
-
     let upInterval, downInterval;
 
     // Function to send repeated BLE commands
