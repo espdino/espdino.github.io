@@ -203,11 +203,21 @@
 
     // Function to stop sending BLE commands
     function stopWritingUpButton() {
-      writeDownButtonCharacteristic(1); // Send "press"
+    let count = 0;
+    const interval = setInterval(() => {
+        writeUpButtonCharacteristic(0);
+        count++;
+        if (count >= 3) clearInterval(interval);
+    }, 10); // Send every 10ms, 10 times
     }
 
     function stopWritingDownButton() {
-      writeDownButtonCharacteristic(0); // Send "release"
+    let count = 0;
+    const interval = setInterval(() => {
+        writeDownButtonCharacteristic(0);
+        count++;
+        if (count >= 3) clearInterval(interval);
+    }, 10); // Send every 10ms, 10 times
     }
 
     // Event Listeners for Continuous Press
