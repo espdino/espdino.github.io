@@ -128,14 +128,14 @@ input[type="range"] {
   width: 100%;
   height: 10px;
   border-radius: 5px;
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  background: linear-gradient(to right, #0000ff, #ff0000);
   outline: none;
   -webkit-appearance: none;
   transition: background 0.3s ease;
 }
 
 input[type="range"]:hover {
-  background: linear-gradient(to right, #ff6f61, #e44d26);
+  background: linear-gradient(to right, #0033ff, #cc0000);
 }
 
 input[type="range"]::-webkit-slider-thumb {
