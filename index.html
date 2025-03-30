@@ -207,21 +207,15 @@ function startWritingDownButton() {
 }
 
 function stopWritingUpButton() {
-    let count3 = 0;
-    const interval3 = setInterval(() => {
         writeUpButtonCharacteristic(0);
-        count3++;
-        if (count3 >= 3) clearInterval(interval3);
-    }, 10); // Sends 0 three times (every 10ms)
+        writeUpButtonCharacteristic(0);
+        writeUpButtonCharacteristic(0);
 }
 
 function stopWritingDownButton() {
-    let count4 = 0;
-    const interval4 = setInterval(() => {
         writeDownButtonCharacteristic(0);
-        count4++;
-        if (count4 >= 3) clearInterval(interval4);
-    }, 10); // Sends 0 three times (every 10ms)
+        writeDownButtonCharacteristic(0);
+        writeDownButtonCharacteristic(0);
 }
 
 // ✅ Use pointer events for better cross-device support
