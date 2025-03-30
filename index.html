@@ -187,46 +187,41 @@
     playButton.addEventListener("click", () => {
       writeUpButtonCharacteristic(2);
     });
-    // Write to the ESP32 LED Characteristic
-    // Variables to hold the interval references
     
-    let upInterval, downInterval;
-
-    // Function to send repeated BLE commands
     function startWritingUpButton() {
       let count1 = 0;
-      const interval = setInterval(() => {
+      const interva1l = setInterval(() => {
       writeUpButtonCharacteristic(1);
       count1++;
-      if (count1 >= 3) clearInterval(interval);
+      if (count1 >= 3) clearInterval(interval1);
     }, 10); // Send every 10ms, 10 times
     }
 
     function startWritingDownButton() {
     let count2 = 0;
-    const interval = setInterval(() => {
+    const interval2 = setInterval(() => {
         writeDownButtonCharacteristic(1);
         count2++;
-        if (count2 >= 3) clearInterval(interval);
+        if (count2 >= 3) clearInterval(interval2);
     }, 10); // Send every 10ms, 10 times
     }
 
     // Function to stop sending BLE commands
     function stopWritingUpButton() {
     let count3 = 0;
-    const interval = setInterval(() => {
+    const interval3 = setInterval(() => {
         writeUpButtonCharacteristic(0);
         count3++;
-        if (count3 >= 3) clearInterval(interval);
+        if (count3 >= 3) clearInterval(interval3);
     }, 10); // Send every 10ms, 10 times
     }
 
     function stopWritingDownButton() {
     let count4 = 0;
-    const interval = setInterval(() => {
+    const interval4 = setInterval(() => {
         writeDownButtonCharacteristic(0);
         count4++;
-        if (count4 >= 3) clearInterval(interval);
+        if (count4 >= 3) clearInterval(interval4);
     }, 10); // Send every 10ms, 10 times
     }
 
