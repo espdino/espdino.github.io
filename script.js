@@ -55,21 +55,27 @@ function updateBrightness() {
 let keysPressed = { ArrowUp: false, ArrowDown: false };
 
 function handleKeyDown(event) {
-    if (keysPressed[event.key] === false) {
+    if (event.key !== "ArrowUp" && event.key !== "ArrowDown") return; // Ignore other keys
+
+    if (!keysPressed[event.key]) { // Prevent redundant writes
         keysPressed[event.key] = true;
-        writeButtonCharacteristic(
-            event.key === "ArrowUp" ? BLE_DEVICE.upButtonChar : BLE_DEVICE.downButtonChar,
-            1
-        );
+        const characteristic = event.key === "ArrowUp" ? BLE_DEVICE.upButtonChar : BLE_DEVICE.downButtonChar;
+        if (characteristic) {
+            writeButtonCharacteristic(characteristic, 1);
+        }
     }
 }
 
 function handleKeyUp(event) {
+    if (event.key !== "ArrowUp" && event.key !== "ArrowDown") return; // Ignore other keys
+
     keysPressed[event.key] = false;
-    writeButtonCharacteristic(
-        event.key === "ArrowUp" ? BLE_DEVICE.upButtonChar : BLE_DEVICE.downButtonChar,
-        0
-    );
+    const characteristic = event.key === "ArrowUp" ? BLE_DEVICE.upButtonChar : BLE_DEVICE.downButtonChar;
+    if (characteristic) {
+        writeButtonCharacteristic(characteristic, 0);
+        writeButtonCharacteristic(characteristic, 0);
+        writeButtonCharacteristic(characteristic, 0);
+    }
 }
 
 // Bluetooth Functions
