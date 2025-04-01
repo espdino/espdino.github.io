@@ -59,9 +59,9 @@ function handleKeyDown(event) {
 
     if (!keysPressed[event.key]) { // Prevent redundant writes
         keysPressed[event.key] = true;
-        const characteristic = event.key === "ArrowUp" ? BLE_DEVICE.upButtonChar : BLE_DEVICE.downButtonChar;
-        if (characteristic) {
-            writeButtonCharacteristic(characteristic, 1);
+        const characteristic1 = event.key === "ArrowUp" ? BLE_DEVICE.upButtonChar : BLE_DEVICE.downButtonChar;
+        if (characteristic1) {
+            writeButtonCharacteristic(characteristic1, 1);
         }
     }
 }
@@ -70,11 +70,11 @@ function handleKeyUp(event) {
     if (event.key !== "ArrowUp" && event.key !== "ArrowDown") return; // Ignore other keys
 
     keysPressed[event.key] = false;
-    const characteristic = event.key === "ArrowUp" ? BLE_DEVICE.upButtonChar : BLE_DEVICE.downButtonChar;
-    if (characteristic) {
-        writeButtonCharacteristic(characteristic, 0);
-        writeButtonCharacteristic(characteristic, 0);
-        writeButtonCharacteristic(characteristic, 0);
+    const characteristic2 = event.key === "ArrowUp" ? BLE_DEVICE.upButtonChar : BLE_DEVICE.downButtonChar;
+    if (characteristic2) {
+        writeButtonCharacteristic(characteristic2, 0);
+        writeButtonCharacteristic(characteristic2, 0);
+        writeButtonCharacteristic(characteristic2, 0);
     }
 }
 
