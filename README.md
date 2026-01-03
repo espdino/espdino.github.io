@@ -25,11 +25,12 @@ Perfect for makers, LED art lovers, and anyone curious about microcontroller gam
 
 📦 espdino.github.io
 
-├── index.html         ← Homepage
+├── index.html         ← Web BLE controller UI
 
-├── script.js          ← Web interface
+├── script.js          ← Game & BLE logic 
 
-├── styles.css         ← Web UI styling
+├── styles.css         ← UI styles
+
 
 ├── firmware/          ← ESP microcontroller source
 
@@ -37,13 +38,10 @@ Perfect for makers, LED art lovers, and anyone curious about microcontroller gam
 
 │   ├── sprites.h
 
-│   ├── game_logic.cpp
+│   ├── game_logic.h
 
 │   └── ...
 
-├── assets/            ← Images, schematics, diagrams
-
-├── docs/              ← Design notes, circuits, charts
 
 └── README.md
 
