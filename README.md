@@ -122,4 +122,3 @@ This project is licensed under AGPL-3.0 — see the LICENSE file for details.
 
 Follow the project on GitHub: https://github.com/espdino/espdino.github.io
 
-💡 Tips for a great README
