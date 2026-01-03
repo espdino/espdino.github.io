@@ -2,7 +2,7 @@
 
 #include <Adafruit_NeoPixel.h>
 #include "gameVariables.h"
-#include "images.h"
+#include "sprites.h"
 #define LED_PIN 13
 #define LED_COUNT 256
 
@@ -512,4 +512,5 @@ void moveObstacles() {
     if (moveTime < minSpeed)
       moveTime = minSpeed;
   }
+
 }
