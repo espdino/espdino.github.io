@@ -2,8 +2,6 @@
 
 A retro-style Dino game built for a 16×16 NeoPixel LED matrix driven by an ESP microcontroller — complete with obstacles, player animation, and high-score tracking.
 
-Live demo (HTML5 / Emulator): Coming Soon!
-Hardware build gallery: Images / video links if available
 
 🧠 Overview
 
