@@ -1,5 +1,5 @@
 #include "gameLogic.h"
-#include "bluetoothStuff.h"
+#include "bluetoothLogic.h"
 
 void setup() {
   // Инициализация на BLE устройството с име "Dino"
@@ -99,4 +99,5 @@ void loop() {
   playerMovement(currState);
   grass();
   strip.show();
+
 }
