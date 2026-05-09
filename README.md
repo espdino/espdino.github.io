@@ -70,8 +70,6 @@ Install dependencies (NeoPixel libraries, etc.)
 
 Upload firmware to your ESP device
 
-Add exact library names / versions here to avoid build issues later.
-Bulldogjob
 
 🎮 How to Play
 
